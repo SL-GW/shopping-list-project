@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./List.css";
 
 export default function List() {
   const [item, setItem] = useState("");
@@ -16,8 +17,13 @@ export default function List() {
   return (
     <div className="List">
       <form onSubmit={handleSubmit}>
-        <input type="search" placeholder="Enter item" onChange={updateList} />
-        <input type="submit" value="Add" />
+        <input
+          className="searchInput"
+          type="search"
+          placeholder="Enter item"
+          onChange={updateList}
+        />
+        <input className="searchButton" type="submit" value="Add" />
       </form>
       <ul>
         <li>{item}</li>
