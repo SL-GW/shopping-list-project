@@ -10,16 +10,17 @@ export default function List() {
 
   function updateList(event) {
     setItem(event.target.value);
+    console.log(event.target.value);
   }
 
   return (
     <div className="List">
       <form onSubmit={handleSubmit}>
-        <input type="search" placeholder="Enter item" />
-        <input type="submit" value="Add" onChange={updateList} />
+        <input type="search" placeholder="Enter item" onChange={updateList} />
+        <input type="submit" value="Add" />
       </form>
       <ul>
-        <li></li>
+        <li>{item}</li>
         <li></li>
         <li></li>
       </ul>
