@@ -1,3 +1,13 @@
+ul {
+  text-decoration-line: none;
+  text-decoration: none;
+  list-style: none;
+}
+
+li {
+  font-size: 25px;
+}
+
 .searchInput {
   font-size: 23px;
   font-family: "Playwrite AT", cursive;

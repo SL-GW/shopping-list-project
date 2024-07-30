@@ -2,16 +2,19 @@ import React, { useState } from "react";
 import "./List.css";
 
 export default function List() {
-  const [item, setItem] = useState("");
+  const [currentItem, setCurrentItem] = useState("");
+  const [items, setItems] = useState([]);
 
   function handleSubmit(event) {
     event.preventDefault();
-    updateList(item);
+    if (currentItem.trim() !== "") {
+      setItems([...items, currentItem]);
+      setCurrentItem(""); // Clear the input field
+    }
   }
 
-  function updateList(event) {
-    setItem(event.target.value);
-    console.log(event.target.value);
+  function updateCurrentItem(event) {
+    setCurrentItem(event.target.value);
   }
 
   return (
@@ -19,16 +22,17 @@ export default function List() {
       <form onSubmit={handleSubmit}>
         <input
           className="searchInput"
-          type="search"
+          type="text"
           placeholder="Enter item"
-          onChange={updateList}
+          value={currentItem}
+          onChange={updateCurrentItem}
         />
         <input className="searchButton" type="submit" value="Add" />
       </form>
       <ul>
-        <li>{item}</li>
-        <li></li>
-        <li></li>
+        {items.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
       </ul>
     </div>
   );
