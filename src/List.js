@@ -7,10 +7,9 @@ export default function List() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (currentItem.trim() !== "") {
-      setItems([...items, currentItem]);
-      setCurrentItem(""); // Clear the input field
-    }
+
+    setItems([...items, currentItem]);
+    setCurrentItem("");
   }
 
   function updateCurrentItem(event) {

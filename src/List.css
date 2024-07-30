@@ -34,3 +34,10 @@ li {
   background: #fafafa;
   border: solid 4px #77529e;
 }
+
+@media (max-width: 600px) {
+  .searchInput {
+    margin-right: 5px;
+    width: 220px;
+  }
+}

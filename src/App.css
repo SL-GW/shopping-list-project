@@ -6,7 +6,8 @@
   font-style: normal;
 }
 
-.App h1 {
+h1 {
   font-size: 70px;
   font-weight: 600;
+  text-align: center;
 }
