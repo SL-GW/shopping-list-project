@@ -1,3 +1,26 @@
 .searchInput {
-  font-size: 20px;
+  font-size: 23px;
+  font-family: "Playwrite AT", cursive;
+  margin-right: 10px;
+  border-radius: 4px;
+  border: solid 2px #77529e;
+  width: 500px;
+  font-weight: 500;
+}
+
+.searchButton {
+  font-size: 23px;
+  font-family: "Playwrite AT", cursive;
+  border-radius: 4px;
+  background: #77529e;
+  color: #fafafa;
+  width: 100px;
+  font-weight: 500;
+  border: none;
+}
+
+.searchButton:hover {
+  color: #77529e;
+  background: #fafafa;
+  border: solid 4px #77529e;
 }
