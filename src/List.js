@@ -37,12 +37,13 @@ export default function List() {
         />
         <input className="searchButton" type="submit" value="Add" />
       </form>
+
       <ul>
         {products.map((item, index) => (
-          <li key={index} className={item.done ? "to buy" : ""}>
+          <li key={index} className={item.done ? "buy" : ""}>
             {item.text}
             <button onClick={() => markAsDone(index)}>
-              {item.done ? "bought" : "to buy"}
+              {item.done ? "bought" : "buy"}
             </button>
           </li>
         ))}
