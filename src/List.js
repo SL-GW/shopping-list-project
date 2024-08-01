@@ -2,18 +2,27 @@ import React, { useState } from "react";
 import "./List.css";
 
 export default function List() {
-  const [currentItem, setCurrentItem] = useState("");
-  const [items, setItems] = useState([]);
+  const [currentProduct, setCurrentProduct] = useState("");
+  const [products, setProducts] = useState([]);
 
   function handleSubmit(event) {
     event.preventDefault();
-
-    setItems([...items, currentItem]);
-    setCurrentItem("");
+    setProducts([...products, { text: currentProduct, done: false }]);
+    setCurrentProduct("");
   }
 
-  function updateCurrentItem(event) {
-    setCurrentItem(event.target.value);
+  function updateCurrentProduct(event) {
+    setCurrentProduct(event.target.value);
+  }
+
+  function markAsDone(index) {
+    let newProduct = products.map((item, i) => {
+      if (i === index) {
+        return { ...item, done: !item.done };
+      }
+      return item;
+    });
+    setProducts(newProduct);
   }
 
   return (
@@ -23,14 +32,19 @@ export default function List() {
           className="searchInput"
           type="text"
           placeholder="Enter item"
-          value={currentItem}
-          onChange={updateCurrentItem}
+          value={currentProduct}
+          onChange={updateCurrentProduct}
         />
         <input className="searchButton" type="submit" value="Add" />
       </form>
       <ul>
-        {items.map((item, index) => (
-          <li key={index}>{item}</li>
+        {products.map((item, index) => (
+          <li key={index} className={item.done ? "to buy" : ""}>
+            {item.text}
+            <button onClick={() => markAsDone(index)}>
+              {item.done ? "bought" : "to buy"}
+            </button>
+          </li>
         ))}
       </ul>
     </div>
